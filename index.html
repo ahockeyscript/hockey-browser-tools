@@ -1,20 +1,129 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style type="text/css">#bookmark a {
+    <style type="text/css">
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    #container {
+      background: #f0f0f0;
+    }
+
+    #content {
       border: 1px solid #c0c0c0;
-      padding: 0.5em;
-      color: black;
+      background: #fff;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1em 2em;
+      -webkit-box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.75);
+    }
+    
+    section {
+      margin-bottom: 2em;
+    }
+    
+    hr {
+      margin: 2em 0;
+    }
+    
+    .bookmarklet a {
+      padding:0.75em 1em;
+      color: #fff;
       text-decoration: none;
-      }
+      display: inline-block;
+      
+      -webkit-border-radius: 5;
+      -moz-border-radius: 5;
+      border-radius: 5px;
+    }
+    
+        
+    section:nth-of-type(1) .bookmarklet a {
+      background: #d93434;
+      background-image: -webkit-linear-gradient(top, #d93434, #b82b2b);
+      background-image: -moz-linear-gradient(top, #d93434, #b82b2b);
+      background-image: -ms-linear-gradient(top, #d93434, #b82b2b);
+      background-image: -o-linear-gradient(top, #d93434, #b82b2b);
+      background-image: linear-gradient(to bottom, #d93434, #b82b2b);
+    }
+
+    section:nth-of-type(2) .bookmarklet a {
+      background: #3498db;
+      background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+      background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+      background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+      background-image: -o-linear-gradient(top, #3498db, #2980b9);
+      background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    }
+
+    section:nth-of-type(3) .bookmarklet a {
+      background: #34d997;
+      background-image: -webkit-linear-gradient(top, #34d997, #2cb86d);
+      background-image: -moz-linear-gradient(top, #34d997, #2cb86d);
+      background-image: -ms-linear-gradient(top, #34d997, #2cb86d);
+      background-image: -o-linear-gradient(top, #34d997, #2cb86d);
+      background-image: linear-gradient(to bottom, #34d997, #2cb86d);
+    }
     </style>
   </head>
   <body>
-    <h1>NHL Playoffs Bracket</h1>
-    <p>A bookmarklet to generate an NHL playoffs bracket based on current (2017-18) data. Use on https://www.nhl.com/standings. Install by copying the text of the first file into the URL/address field of a new bookmark on your web browser.</p>
-    <p>
-  <span id="bookmark"><a href="javascript:
-(function($){if($('#my-playoffs-bracket').length==0){$('body').append('<div id=&quot;my-playoffs-bracket&quot; class=&quot;modal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;> <div class=&quot;modal-dialog modal-lg&quot; role=&quot;document&quot;> <div class=&quot;modal-content&quot;> <div class=&quot;modal-header&quot;> <h5 class=&quot;modal-title&quot;>Playoffs Bracket</h5> <button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;> <span aria-hidden=&quot;true&quot;>&amp;times;</span> </button> </div> <div class=&quot;modal-body&quot;> </div> <div class=&quot;modal-footer&quot;> <button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-dismiss=&quot;modal&quot;>Close</button> </div> </div> </div> </div>');$('#my-playoffs-bracket .modal-body').empty().append('<section id=&quot;playoffs-bracket-view&quot;><div class=&quot;bracket-container&quot;>  <div class=&quot;bracket-box western division-upper matchup-upper round-1&quot;></div> <div class=&quot;bracket-box western division-upper matchup-lower round-1&quot;></div> <div class=&quot;bracket-box western division-lower matchup-upper round-1&quot;></div> <div class=&quot;bracket-box western division-lower matchup-lower round-1&quot;></div> <div class=&quot;bracket-box eastern division-upper matchup-upper round-1&quot;></div> <div class=&quot;bracket-box eastern division-upper matchup-lower round-1&quot;></div> <div class=&quot;bracket-box eastern division-lower matchup-upper round-1&quot;></div> <div class=&quot;bracket-box eastern division-lower matchup-lower round-1&quot;></div>  <div class=&quot;bracket-box western division-upper round-2&quot;></div> <div class=&quot;bracket-box western division-lower round-2&quot;></div> <div class=&quot;bracket-box eastern division-upper round-2&quot;></div> <div class=&quot;bracket-box eastern division-lower round-2&quot;></div>  <div class=&quot;bracket-box western round-3&quot;></div> <div class=&quot;bracket-box eastern round-3&quot;></div>  <div class=&quot;bracket-box western round-4&quot;></div> <div class=&quot;bracket-box eastern round-4&quot;></div>  <div class=&quot;bracket-slot eastern atlantic round-1 rank-1&quot; id=&quot;series-a-top&quot;></div> <div class=&quot;bracket-slot eastern atlantic round-1 rank-wc&quot; id=&quot;series-a-bottom&quot;></div> <div class=&quot;bracket-slot eastern atlantic round-1 rank-2&quot; id=&quot;series-b-top&quot;></div> <div class=&quot;bracket-slot eastern atlantic round-1 rank-3&quot; id=&quot;series-b-bottom&quot;></div> <div class=&quot;bracket-slot eastern metropolitan round-1 rank-1&quot; id=&quot;series-c-top&quot;></div> <div class=&quot;bracket-slot eastern metropolitan round-1 rank-wc&quot; id=&quot;series-c-bottom&quot;></div> <div class=&quot;bracket-slot eastern metropolitan round-1 rank-2&quot; id=&quot;series-d-top&quot;></div> <div class=&quot;bracket-slot eastern metropolitan round-1 rank-3&quot; id=&quot;series-d-bottom&quot;></div> <div class=&quot;bracket-slot western central round-1 rank-1&quot; id=&quot;series-e-top&quot;></div> <div class=&quot;bracket-slot western central round-1 rank-wc&quot; id=&quot;series-e-bottom&quot;></div> <div class=&quot;bracket-slot western central round-1 rank-2&quot; id=&quot;series-f-top&quot;></div> <div class=&quot;bracket-slot western central round-1 rank-3&quot; id=&quot;series-f-bottom&quot;></div> <div class=&quot;bracket-slot western pacific round-1 rank-1&quot; id=&quot;series-g-top&quot;></div> <div class=&quot;bracket-slot western pacific round-1 rank-wc&quot; id=&quot;series-g-bottom&quot;></div> <div class=&quot;bracket-slot western pacific round-1 rank-2&quot; id=&quot;series-h-top&quot;></div> <div class=&quot;bracket-slot western pacific round-1 rank-3&quot; id=&quot;series-h-bottom&quot;></div>  <div class=&quot;bracket-slot eastern atlantic round-2 team-upper&quot; id=&quot;series-i-top&quot;></div> <div class=&quot;bracket-slot eastern atlantic round-2 team-lower&quot; id=&quot;series-i-bottom&quot;></div> <div class=&quot;bracket-slot eastern metropolitan round-2 team-upper&quot; id=&quot;series-j-top&quot;></div> <div class=&quot;bracket-slot eastern metropolitan round-2 team-lower&quot; id=&quot;series-j-bottom&quot;></div> <div class=&quot;bracket-slot western central round-2 team-upper&quot; id=&quot;series-k-top&quot;></div> <div class=&quot;bracket-slot western central round-2 team-lower&quot; id=&quot;series-k-bottom&quot;></div> <div class=&quot;bracket-slot western pacific round-2 team-upper&quot; id=&quot;series-l-top&quot;></div> <div class=&quot;bracket-slot western pacific round-2 team-lower&quot; id=&quot;series-l-bottom&quot;></div>  <div class=&quot;bracket-slot eastern atlantic round-3&quot; id=&quot;series-m-top&quot;></div> <div class=&quot;bracket-slot eastern metropolitan round-3&quot; id=&quot;series-m-bottom&quot;></div> <div class=&quot;bracket-slot western central round-3&quot; id=&quot;series-n-top&quot;></div> <div class=&quot;bracket-slot western pacific round-3&quot; id=&quot;series-n-bottom&quot;></div>  <div class=&quot;bracket-slot western round-4&quot; id=&quot;series-o-western&quot;></div> <div class=&quot;bracket-slot eastern round-4&quot; id=&quot;series-o-eastern&quot;></div>  <div class=&quot;bracket-slot round-4-winner hidden&quot; id=&quot;series-o-winner&quot;></div> </section>');$('head').append('<link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://www-league.nhlstatic.com/nhl.com/sections/playoffs/builds/18079747dcd6e99ef6f83019d6311e8b9b54edcc_1517869619/styles/index.css.gz&quot; />');$('head').append('<style type=&quot;text/css&quot;>#my-playoffs-bracket .bracket-slot-content { cursor: pointer; }</style>');}$.get('https://statsapi.web.nhl.com/api/v1/standings/wildCardWithLeaders?expand=standings.record,standings.team,standings.division,standings.conference,team.schedule.next,team.schedule.previous&amp;season=20172018',function(data){var brackets={'Eastern':{},'Western':{}};var i;for(i=2;i<6;i++){var conference,bracket;bracket=new Object();bracket.home=data.records[i].teamRecords[0];conference=(data.records[i].conference.name=='Eastern')?0:1;if(bracket.home.conferenceRank==1){bracket.away=data.records[conference].teamRecords[1];}else{bracket.away=data.records[conference].teamRecords[0];}brackets[data.records[i].conference.name][data.records[i].division.name]=[bracket];brackets[data.records[i].conference.name][data.records[i].division.name].push({home:data.records[i].teamRecords[1],away:data.records[i].teamRecords[2]});}$section=$('#playoffs-bracket-view');$.each(brackets,function(conferenceName,conference){$.each(conference,function(divisionName,division){var seriesLabel='a';var upper=true;$.each(division,function(index,bracket){var bracketType=(upper)?'upper':'lower';$.each(bracket,function(key,value){var rank=(bracket[key].wildCardRank>0)?'wc':bracket[key].divisionRank;var $bracketSlot=$section.find('.bracket-slot.round-1.'+conferenceName.toLowerCase()+'.'+divisionName.toLowerCase()+'.rank-'+rank);var $bracketSlotContent=$('<div class=&quot;bracket-slot-content logo-round-team&quot;>');$bracketSlotContent.addClass('logo-bg--team-'+bracket[key].team.id+' primary-bg--team-'+bracket[key].team.id);$bracketSlotContent.data({'conference':conferenceName.toLowerCase(),'division':divisionName.toLowerCase(),'bracket':bracketType});$bracketSlotContent.click(function(){var $round2Content=$(this).clone(true).off();$('.bracket-slot.round-2.'+$(this).data('conference')+'.'+$(this).data('division')+'.team-'+$(this).data('bracket'),$section).empty().append($round2Content);$round2Content.click(function(){var $round3Content=$($(this).clone(true).off());$('.bracket-slot.round-3.'+$(this).data('conference')+'.'+$(this).data('division'),$section).empty().append($round3Content);$round3Content.click(function(){$('.bracket-slot.round-4.'+$(this).data('conference'),$section).empty().append(this.outerHTML);});});});$bracketSlot.append($bracketSlotContent);});upper=!upper;});});});});$('#my-playoffs-bracket').modal();})(jQuery);" name="bmklink">Boookmarklet: NHL Playoffs Bracket</a></span>
-    </p>
+  <div id="container">
+    <div id="content">
+    <h1>Hockey Browser Tools</h1>
+    <p>Here you can find various scripts that can be used to tweak your browser into providing a different NHL.com experience.</p>
+    <p>See also: <a href="https://ahockeyscript.github.io/nhl-standings-generator/">NHL Standings Generator</a>, a way for you to try out your own personal NHL points system.</p>
+    <nav class="menu">
+      <ul>
+        <li><a href="#playoffs-bracket">NHL Playoffs Bracket</a></li>
+        <li><a href="#standings-index">NHL Standings Indexes</a></li>
+        <li><a href="#how-to">How to Use</a></li>
+        <li><a href="#about">About the Author</a></li>
+      </ul>
+    </nav>
+    
+    <hr />
+
+    <section id="playoffs-bracket">
+      <h2>NHL Playoffs Bracket</h2>
+      <p>A bookmarklet to generate an NHL playoffs bracket based on current (2017-18) data. Use on the <a href="https://www.nhl.com/standings">NHL Standings page</a>, and it will pop up an overlay with the playoff matchups based on the current standings. Click on teams to pick the preferred winner of each series.</p>
+      <p><span class="bookmarklet"><a href="javascript:(function()%7Bvar%20jsCode%20%3D%20document.createElement(%27script%27)%3BjsCode.setAttribute(%27src%27%2C%20%27https%3A%2F%2Fahockeyscript.github.io%2Fhockey-browser-tools%2Fbookmarklets%2Fnhl_bracket_generator.js%27)%3Bdocument.body.appendChild(jsCode)%3B%7D())%3B" name="bmklink">Bookmarklet: NHL Playoffs Bracket</a></span></p>
+    
+    </section>
+    
+    <section id="standings-index">
+      <h2>NHL Standings Indexes</h2>
+      <p>Adds indexes to the <a href="https://www.nhl.com/standings">NHL Standings page</a>. Useful for quickly identifying a team's rank on the League/Conference standings.</p>
+      <p><span class="bookmarklet"><a href="javascript:(function($){$('head').append('<style%20type=&quot;text/css&quot;>.standings--datatable%20table%20{%20counter-reset:%20row-num;%20}%20.standings--datatable%20table%20tbody%20tr%20{%20counter-increment:%20row-num;%20}%20.standings--datatable%20table%20tbody%20tr%20td:first-child::before%20{%20content:%20counter(row-num)%20&quot;.%20&quot;;%20}</style>');})(jQuery);" name="bmklink">Bookmarklet: NHL Standings Indexes</a></span></p>
+    </section>
+    <hr />
+    <section id="how-to">
+      <h2>How to Use</h2>
+      <p>Drag and drop the link to your browser bookmarks/favourites bar, or right click and choose to add to your bookmarks/favourites. Then, when you're on the relevant page, click on the bookmark to activate it.</p>
+    </section>
+    
+    <section id="about">
+      <h2>About the Author</h2>
+      <p>Australian and Canadian, back in Australia after a number of years in Vancouver BC. Listener of many hockey podcasts. Questions and comments to ahockeyscript@gmail.com. Twitter: <a href="http://twitter.com/ahockeyscript">@ahockeyscript</a>.</p>
+    </section>
+    
+    <footer></footer>
+    </div>
+  </div>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115774306-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115774306-2');
+  </script>
+
   </body>
 </html>
